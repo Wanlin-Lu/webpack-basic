@@ -2,5 +2,6 @@ export function square(x) {
 	return x * x
 }
 export function cube(x) {
-	return x * x * x
+	let [a,b] = [x,100]
+	return a * 100 * a
 }

@@ -20,12 +20,18 @@ if (process.env.NODE_ENV === 'production') {
 
 	return element
 }*/
+
 function component () {
-	var element = document.createElement('pre')
+	let element = document.createElement('pre')
+
+	let [a,b] = [120,340]
+
 
 	element.innerHTML = [
 		'Hello webpack',
-		'5 cubed is equal to ' + cube(5)
+		'5 cubed is equal to ' + cube(5),
+		a,
+		b,
 	].join('\n\n')
 
 	return element
