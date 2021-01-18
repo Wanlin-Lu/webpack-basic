@@ -5,6 +5,14 @@ const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
 	devtool: 'source-map',
+	module: {
+		rules: [
+			{
+        test: /\.(scss|sass|css)$/,
+        use: ['style-loader','css-loader','sass-loader']
+      }
+		]
+	},
 	plugins: [
 		new UglifyJSPlugin({
 			sourceMap: true

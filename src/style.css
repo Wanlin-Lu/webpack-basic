@@ -1,10 +1,7 @@
-body {
-	background: red;
-}
+body{background: #006789}
 pre {
-	color: pink;
 	transition: color 2s linear 1s;
 }
-pre:hover {
-	color: green;
+pre:hover{
+	color: red;
 }
