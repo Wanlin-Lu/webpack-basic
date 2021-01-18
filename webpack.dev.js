@@ -9,6 +9,30 @@ module.exports = merge(common, {
       {
         test: /\.(scss|sass|css)$/,
         use: ['style-loader','css-loader','sass-loader',]
+      },
+      {
+      	test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+      	use: [
+      		{
+      			loader: 'file-loader',
+      			options: {
+      				outputPath: 'images',
+      				name: '[name].[ext]',
+      			}
+      		}
+      	]
+      },
+      {
+      	test: /\.(woff|woff2|eot|ttf|otf)$/,
+      	use: [
+      		{
+      			loader: 'file-loader',
+      			options: {
+      				outputPath: 'fonts',
+      				name: '[name].[ext]',
+      			}
+      		}
+      	]
       }
     ]
   },

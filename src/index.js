@@ -1,6 +1,7 @@
 import './style.css'
 import './style.scss'
 import { cube } from './math.js'
+import icon from './res/icon.png'
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Looks like we are in production mood!')
@@ -22,4 +23,8 @@ function component () {
 }
 
 let element = component()
+
+const img = document.createElement('img')
+img.src = icon
 document.body.appendChild(element)
+document.body.appendChild(img)

@@ -10,6 +10,62 @@ module.exports = merge(common, {
 			{
         test: /\.(scss|sass|css)$/,
         use: ['style-loader','css-loader','sass-loader']
+      },
+      {
+      	test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+      	use: [
+      		{
+      			loader: 'file-loader',
+      			options: {
+      				outputPath: 'images',
+      				name: '[name].[hash].[ext]',
+      			}
+      		},
+      		{
+      			loader: 'image-webpack-loader',
+      			options: {
+      				mozjpeg: {
+      					progressive: true,
+      					quality: 65,
+      				},
+      				svgo: {
+      					plugins: [
+      						{
+      							removeViewBox: false,
+      						},
+      						{
+      							removeEmptyAttrs: false,
+      						}
+      					]
+      				},
+      				gifsicle: {
+      					interlaced: false,
+      				},
+      				optipng: {
+      					optimizationLevel: 7,
+      				},
+      				pngquant: {
+      					quality: [0.65, 0.90],
+      					speed: 4,
+      				},
+      				webp: {
+      					quality: 75
+      				}
+      			}
+      		}
+      	]
+      },
+      {
+      	test: /\.(woff|woff2|eot|ttf|otf)$/,
+      	use: [
+      		{
+      			loader: 'file-loader',
+      			options: {
+      				outputPath: 'fonts',
+      				name: '[name].[hash].[ext]',
+      			}
+      		}
+      	]
       }
 		]
 	},
