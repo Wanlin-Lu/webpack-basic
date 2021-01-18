@@ -3,5 +3,5 @@ export function square(x) {
 }
 export function cube(x) {
 	let [a,b] = [x,100]
-	return a * 100 * a
+	return a * 100 * b
 }

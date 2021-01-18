@@ -1,10 +1,9 @@
-import PMe from './print.js'
 import './style.css'
 import './style.scss'
 import { cube } from './math.js'
 
 if (process.env.NODE_ENV === 'production') {
-	console.log('Looks like we are in production mood!')
+  console.log('Looks like we are in production mood!')
 }
 
 function component () {

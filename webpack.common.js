@@ -9,6 +9,15 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				enforce: 'pre',
+				test: /\.js$/,
+				loader: 'eslint-loader',
+				exclude: /node_modules/,
+				options: {
+					emitWarning: process.env.NODE_ENV !== 'production',
+				}
+			},
+			{
 				test: /\.js$/,
 				loader: 'babel-loader',
 				include: path.join(__dirname,'src'),
