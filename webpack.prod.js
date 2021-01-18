@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const common = require('./webpack.common.js')
 
@@ -9,7 +10,16 @@ module.exports = merge(common, {
 		rules: [
 			{
         test: /\.(scss|sass|css)$/,
-        use: ['style-loader','css-loader','sass-loader']
+        use: [
+	        {
+	        	loader: MiniCssExtractPlugin.loader,
+	        	options: {
+	        		publicPath: '/'
+	        	}
+	        },
+	        'css-loader',
+	        'sass-loader',
+        ]
       },
       {
       	test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
@@ -70,6 +80,9 @@ module.exports = merge(common, {
 		]
 	},
 	plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash].css',
+    }),
 		new UglifyJSPlugin({
 			sourceMap: true
 		}),
