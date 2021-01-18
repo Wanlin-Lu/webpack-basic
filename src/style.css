@@ -1,3 +1,10 @@
 body {
 	background: red;
 }
+pre {
+	color: pink;
+	transition: color 2s linear 1s;
+}
+pre:hover {
+	color: green;
+}

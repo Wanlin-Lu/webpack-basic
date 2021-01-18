@@ -4,14 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
 	entry: {
-		app: './src/index.js'
+		app: path.join(__dirname,'src','index.js')
 	},
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
-				include: path.join(__dirname,'../src'),
+				include: path.join(__dirname,'src'),
 				exclude: /node_modules/
 			},
 			{
@@ -28,7 +28,6 @@ module.exports = {
 	],
 	output: {
 		filename: '[name].bundle.js',
-		path: path.resolve(__dirname,'../dist'),
-		publicPath: './'
+		path: path.resolve(__dirname,'dist')
 	}
 }
